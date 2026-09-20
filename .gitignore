@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# macOS
+.DS_Store
+
+# Virtual environments
+graphnarrator-env/
+graphnarrator-env310/
+.venv/
+venv/
+
+# Datasets
+dataset/
+cora/
+cora.tgz
+
+# Model checkpoints
+*.pt
+*.pth
+*.ckpt
+
+# Logs
+*.log
+running.log
+
+# Generated explanations/results
+results/
+graphsage_explanations.json
+graphsage_local_explanations.json
+graphsage_xai_explanations.json
+citeseer_node_2578_graph.txt
+
+# Temporary/generated files
+paper_ids.txt
+paper_ids_with_classes.txt
+
+# Secrets
+.env
+*.env
