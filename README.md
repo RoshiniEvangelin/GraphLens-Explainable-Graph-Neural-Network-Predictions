@@ -7,6 +7,7 @@
 ![PyTorch Geometric](https://img.shields.io/badge/PyTorch%20Geometric-2.6.0-orange)
 ![GraphSAGE](https://img.shields.io/badge/GNN-GraphSAGE-purple)
 
+> **Note on provenance:** this project adapts portions of code from the official [GraphNarrator](https://github.com/pb0316/GraphNarrator) implementation (Pan et al., ACL 2025) and implements other components independently based on the paper's described methodology. See [Relationship to GraphNarrator](#relationship-to-graphnarrator) for a full breakdown.
 
 ---
 
@@ -232,6 +233,8 @@ The GraphSAGE model achieved:
 | Average neighbor support |     76.86% |
 
 The difference between the datasets also provides useful material for analyzing how graph structure, feature dimensionality, and neighborhood consistency affect GNN predictions.
+
+*(These numbers are from my own runs of this pipeline, not the GraphNarrator paper's reported results — the two projects evaluate different pipelines and shouldn't be compared directly.)*
 
 ---
 
@@ -664,25 +667,17 @@ Potential extensions include:
 
 # Relationship to GraphNarrator
 
-GraphLens was developed as a **Mac-compatible, lightweight explainability pipeline inspired by the broader idea of generating human-readable explanations for GNN predictions**.
+GraphLens builds on ideas and code from the official **[GraphNarrator](https://github.com/pb0316/GraphNarrator)** repository, the reference implementation for:
 
-The original GraphNarrator project contains a larger CUDA-oriented pipeline involving additional components such as language-model-based explanation generation and training infrastructure.
+> Pan, B., Xiong, Z., Wu, G., Zhang, Z., Zhang, Y., Hu, Y., & Zhao, L. (2025). *GraphNarrator: Generating Textual Explanations for Graph Neural Networks.* ACL 2025. [aclanthology.org/2025.acl-long.2](https://aclanthology.org/2025.acl-long.2/)
 
-GraphLens focuses specifically on:
+**What's adapted from the official repository:**
+`<!-- FILL IN: list the specific files/functions carried over or closely modified from pb0316/GraphNarrator — e.g. graphnarrator_structure.py, specific data-loading or traversal utilities, etc. -->`
 
-```text
-GraphSAGE
-   +
-Gradient Attribution
-   +
-Neighborhood Analysis
-   +
-Graph Traversal
-   +
-Human-Readable Explanations
-```
+**What's implemented independently in this repository:**
+The GraphSAGE training pipeline, gradient-based feature attribution, direct-neighbor and multi-hop analysis, error-case categorization, and the template-based human-readable explanation layer in this repo were written by me, based on the methodology described in the paper, as a Mac-compatible (MPS/Apple Silicon), lightweight alternative to the original CUDA-oriented pipeline — which also includes additional components such as LM-based explanation generation and training infrastructure not reproduced here.
 
-This separation keeps the project lightweight and reproducible on Apple Silicon systems.
+**On reuse:** the official GraphNarrator repository does not publish a license file, which means the adapted portions above remain under the original authors' copyright by default. If you plan to reuse or redistribute this repository beyond viewing/personal study, please also review the terms (or lack thereof) of the upstream project, or reach out to its authors.
 
 ---
 
@@ -715,11 +710,27 @@ For reproducible experiments:
 
 ---
 
+# Citation
+
+If you build on this repository, please cite the original GraphNarrator paper it adapts from:
+
+```bibtex
+@inproceedings{pan2025graphnarrator,
+  title     = {GraphNarrator: Generating Textual Explanations for Graph Neural Networks},
+  author    = {Pan, Bo and Xiong, Zhen and Wu, Guanchen and Zhang, Zheng and Zhang, Yifei and Hu, Yuntong and Zhao, Liang},
+  booktitle = {Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (ACL 2025)},
+  year      = {2025},
+  url       = {https://aclanthology.org/2025.acl-long.2/}
+}
+```
+
+---
+
 # License
 
 This repository is intended as a research and portfolio project.
 
-Please review the licensing terms of any datasets, libraries, or upstream research code used by the project before redistribution.
+Original contributions in this repository (see [Relationship to GraphNarrator](#relationship-to-graphnarrator) for the breakdown) are shared for research and educational purposes. Portions adapted from the official GraphNarrator repository remain under the original authors' copyright, as that repository does not specify a license. Please review the terms of any datasets, libraries, or upstream research code used by this project — and the note above — before redistribution.
 
 ---
 
