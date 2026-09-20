@@ -6,7 +6,7 @@
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.4.1-ee4c2c)
 ![PyTorch Geometric](https://img.shields.io/badge/PyTorch%20Geometric-2.6.0-orange)
 ![GraphSAGE](https://img.shields.io/badge/GNN-GraphSAGE-purple)
-![Apple Silicon](https://img.shields.io/badge/Platform-Apple%20Silicon-black)
+
 
 ---
 
@@ -730,14 +730,6 @@ Please review the licensing terms of any datasets, libraries, or upstream resear
 MS Computer Science
 Purdue University Northwest
 
-Interested in:
-
-* Machine Learning
-* Artificial Intelligence
-* Explainable AI
-* Graph Neural Networks
-* Computer Vision
-* Applied Deep Learning
 
 ---
 
